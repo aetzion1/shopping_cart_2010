@@ -17,4 +17,10 @@ class Market
         end
     end
 
+    def vendors_that_sell(item)
+        @vendors.find_all do |vendor|
+            vendor.inventory[item] > 0
+        end
+    end
+
 end
