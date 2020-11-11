@@ -61,4 +61,10 @@ class Market
         total_inventory
     end
 
+    def overstocked_items
+        total_inventory.filter_map do |item| 
+            item[0] if item[1][:quantity] > 50 && item[1][:vendors].count >1
+        end
+    end
+
 end
