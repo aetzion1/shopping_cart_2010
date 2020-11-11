@@ -3,6 +3,7 @@ require 'Minitest/pride'
 require './lib/market'
 require './lib/vendor'
 require './lib/item'
+require 'date'
 
 class MarketTest < Minitest::Test
     def setup

@@ -5,6 +5,7 @@ class Market
     def initialize(name)
         @name = name
         @vendors = []
+        @date = Date.today
     end
 
     def add_vendor(vendor)
