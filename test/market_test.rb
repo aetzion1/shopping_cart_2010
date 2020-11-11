@@ -1,5 +1,6 @@
 require 'Minitest/autorun'
 require 'Minitest/pride'
+require 'mocha/minitest'
 require './lib/market'
 require './lib/vendor'
 require './lib/item'
@@ -18,9 +19,13 @@ class MarketTest < Minitest::Test
     end
     
     def test_it_exists_and_has_attributes
+        @market.stubs(:date).returns("05/11/1992")
+
+
         assert_instance_of Market, @market
         assert_equal "South Pearl Street Farmers Market", @market.name
         assert_equal [], @market.vendors
+        assert_equal "05/11/1992", @market.date
     end
 
     def test_it_can_return_vendors_and_vendor_names
