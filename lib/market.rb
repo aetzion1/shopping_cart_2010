@@ -23,4 +23,17 @@ class Market
         end
     end
 
+    def sorted_item_list
+        
+        list = []
+        @vendors.each do |vendor|
+            vendor.inventory.each do |item|
+                if item[1] > 0
+                    list << item[0].name
+                end
+            end
+        end
+        list.sort.uniq
+    end
+
 end
