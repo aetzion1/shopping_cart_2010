@@ -33,16 +33,17 @@ class Market
         list.sort.uniq
     end
 
-    def total_inventory
+    def all_items
         items = @vendors.map do |vendor|
             vendor.inventory.map do |item|
                 item[0] if item[1] > 0
             end
         end.flatten.uniq
-
+    end
+    
+    def total_inventory
         total_inventory = {}
-
-        items.each do |item|
+        all_items.each do |item|
             total_inventory[item] = {
                 quantity: 0,
                 vendors: []
